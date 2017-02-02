@@ -38,7 +38,7 @@ function processEvent(event) {
                             parameters: {
                             facebook_user: userName
                             }
-                        }
+                        }]
                        });
         let apiaiRequest = apiAiService.textRequest(text,
             {
@@ -48,6 +48,7 @@ function processEvent(event) {
                     source: "facebook"
                 }
             });
+        console.log("Facebook Kullanici Adi:", userName)
 
         apiaiRequest.on('response', (response) => {
             if (isDefined(response.result)) {
