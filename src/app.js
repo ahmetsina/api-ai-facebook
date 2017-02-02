@@ -16,7 +16,7 @@ const FB_PAGE_ACCESS_TOKEN = process.env.FB_PAGE_ACCESS_TOKEN;
 
 const apiAiService = apiai(APIAI_ACCESS_TOKEN, {language: APIAI_LANG, requestSource: "fb"});
 const sessionIds = new Map();
-var userName;
+
 
 function processEvent(event) {
     var sender = event.sender.id.toString();
@@ -30,6 +30,7 @@ function processEvent(event) {
         }
 
         console.log("Text", text);
+        var userName;
         let apiaiRequest = apiAiService.textRequest(text,
             {
                 sessionId: sessionIds.get(sender),
