@@ -30,23 +30,19 @@ function processEvent(event) {
 
         console.log("Text", text);
         let apiaiRequest = apiAiService.textRequest(text,
-{
-        sessionId: sessionIds.get(sender),
-            contexts: [
+            {
+                sessionId: sessionIds.get(sender),
+                originalRequest: {
+                    data: event,
+                    source: "facebook"
+                },
+                contexts: [
                         {
                             name: "generic",
                             parameters: {
                             facebook_user: userName
                             }
                         }]
-                       });
-        let apiaiRequest = apiAiService.textRequest(text,
-            {
-                sessionId: sessionIds.get(sender),
-                originalRequest: {
-                    data: event,
-                    source: "facebook"
-                }
             });
         console.log("Facebook Kullanici Adi:", userName)
 
