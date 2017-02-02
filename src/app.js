@@ -43,9 +43,9 @@ function processEvent(event) {
                             facebook_user: userName
                             }
                         }]
+            console.log("Facebook Kullanici Adi:", userName);
             });
-        console.log("Facebook Kullanici Adi:", userName)
-
+        console.log("Facebook Kullanici Adi:", userName);
         apiaiRequest.on('response', (response) => {
             if (isDefined(response.result)) {
                 let responseText = response.result.fulfillment.speech;
